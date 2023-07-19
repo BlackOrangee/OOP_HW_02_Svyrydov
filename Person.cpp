@@ -17,7 +17,7 @@ Person::Person(string s_name, int s_ballance)
 }
 
 
-int Person::getUsed()
+bool Person::getUsed()
 {
 	return used;
 }

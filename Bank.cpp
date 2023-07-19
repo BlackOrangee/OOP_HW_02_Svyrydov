@@ -9,7 +9,7 @@ Bank::Bank(string s_name, int s_clients_size)
 	size = s_clients_size;
 }
 
-void Bank::resize(Person* persons)
+Person* Bank::resize(Person* persons)
 {
 	Person* temp = new Person[size * 2];
 
@@ -18,9 +18,9 @@ void Bank::resize(Person* persons)
 		temp[i] = persons[i];
 	}
 	delete[] persons;
-	persons = temp;
 
 	size *= 2;
+	return temp;
 }
 
 void Bank::placeCheck(Person* persons)
@@ -36,7 +36,7 @@ void Bank::placeCheck(Person* persons)
 
 	if (count == size)
 	{
-		resize(persons);
+		persons = resize(persons);
 	}
 }
 
@@ -52,26 +52,26 @@ void Bank::placeCheck(Person* persons)
 //	}
 //}
 
-void Bank::setPerson(Person person)
-{
-	placeCheck(persons);
-
-	for (int i = 0; i < size; i++)
-	{
-		if (!persons[i].getUsed())
-		{
-			persons[i] = person;
-			persons[i].setNumber(i);
-			break;
-		}
-	}
-}
-
-void Bank::editPersonByNumber(int number, string& name, int& ballance)
-{
-	persons[number].setName(name);
-	persons[number].setBalance(ballance);
-}
+//void Bank::setPerson(Person person)
+//{
+//	placeCheck(persons);
+//
+//	for (int i = 0; i < size; i++)
+//	{
+//		if (!persons[i].getUsed())
+//		{
+//			persons[i] = person;
+//			persons[i].setNumber(i);
+//			break;
+//		}
+//	}
+//}
+//
+//void Bank::editPersonByNumber(int number, string& name, int& ballance)
+//{
+//	persons[number].setName(name);
+//	persons[number].setBalance(ballance);
+//}
 
 void Bank::getPerson(int number, string& name, int& ballance, bool& used)
 {

@@ -9,11 +9,11 @@ class Bank
 private:
 	string name;
 	int total_balance;
-	int size;
+	int size = 5;
 	
 	Person* persons = nullptr;
 
-	void resize(Person* persons);
+	Person* resize(Person* persons);
 	void placeCheck(Person* persons);
 	
 public:
@@ -28,9 +28,9 @@ public:
 
 	Bank(string s_name, int s_clients_size);
 	
-	void setPerson(Person person);
+	//void setPerson(Person person);
 
-	void editPersonByNumber(int number, string& name, int& ballance);
+	//void editPersonByNumber(int number, string& name, int& ballance);
 
 	void deletePerson(int number);
 };

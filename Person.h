@@ -17,7 +17,7 @@ public:
 
 	Person();
 
-	int getUsed();
+	bool getUsed();
 	
 	int getBallance();
 

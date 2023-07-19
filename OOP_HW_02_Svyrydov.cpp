@@ -40,7 +40,7 @@ void Edit(Bank& bank)
 
 	EditMenu(name, balance);
 
-	bank.editPersonByNumber(number, name, balance);
+	//bank.editPersonByNumber(number, name, balance);
 }
 
 void Delete(Bank& bank)
@@ -60,18 +60,19 @@ void Add(Bank& bank)
 
 	Person person(name, ballance);
 
-	bank.setPerson(person);
+	//bank.setPerson(person);
 }
 
 void Print(Bank& bank)
 {
-	string name;
+	string name = "";
 	int balance = 0;
 	bool used = false;
+	int size = bank.getSize();
 
-	for (int i = 0; i < bank.getSize(); i++)
+	for (int i = 0; i < size; i++)
 	{
-		bank.getPerson(i, name, balance, used);
+		//bank.getPerson(i, name, balance, used);
 
 		if (used)
 		{
