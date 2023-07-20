@@ -3,34 +3,41 @@
 #include "Person.h"
 
 using namespace std;
-
 class Bank
 {
 private:
-	string name;
-	int total_balance;
-	int size = 5;
-	
-	Person* persons = nullptr;
+	string name;		// Variable to store the name of the bank.
+	int total_balance;	// Total balance of all clients in the bank.
+	int size;			// Maximum size of the bank (maximum number of clients).
 
-	Person* resize(Person* persons);
-	void placeCheck(Person* persons);
-	
+	// Pointer to an array of 'Person' objects (clients).
+	Person* persons = nullptr; 
+
+	// Helper function to resize the array of 'Person' objects.
+	Person* resize(Person*); 
+
+	// Helper function to check if there is a free slot in the array.
+	void placeCheck(); 
+
 public:
+	// Constructor for the 'Bank' class.
+	Bank(string, int);
 
-	
+	// Function to get the current number of clients in the bank.
+	int getSize(); 
 
-	int getSize();
+	// Function to get a specific client by their index in the array.
+	Person getPerson(int); 
 
-	void getPerson(int number, string& name, int& ballance, bool& used);
+	// Function to calculate the total balance of all clients in the bank.
+	int TotalBankBalance(); 
 
-	//int TotalBankBalance();
+	// Function to add a new client to the bank.
+	void setPerson(Person); 
 
-	Bank(string s_name, int s_clients_size);
-	
-	//void setPerson(Person person);
+	// Function to edit the details of a specific client.
+	void editPersonByNumber(int, string&, int&); 
 
-	//void editPersonByNumber(int number, string& name, int& ballance);
-
-	void deletePerson(int number);
+	// Function to delete a client from the bank.
+	void deletePerson(int); 
 };
